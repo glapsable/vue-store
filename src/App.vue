@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -17,17 +19,56 @@
   }
 </script>
 
-<style>
-  .btn {
-    display: inline-block;
-    border: none;
-    background: #555;
-    color: #fff;
-    padding: 7px 20px;
-    cursor: pointer;
+<style lang="scss">
+  @import '../src/assets/styles/variables';
+
+  .container {
+    padding:0 20px;
   }
 
-  .btn:hover {
-    background: #666;
+  .page {
+    background-color: $white;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 668px;
+    min-height: 448px;
+    padding: 50px;
+    @media only screen and (min-width: $small) {
+      margin-top: 135px;
+      padding: 60px 130px 80px;
+    }
+  }
+  .page__icon-wrapper {
+    border: 2px solid $light-blue;
+    border-radius: 50%;
+    height: 80px;
+    margin: 0 auto;
+    margin-bottom: 45px;
+    position: relative;
+    width: 80px;
+    & > img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-55%) translateY(-50%);
+    }
+  }
+  .page__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .page__content {
+    color: $light-text;
+    font-family: $second-font, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: justify;
+  }
+  .page__content--centered {
+    text-align: center;
   }
 </style>

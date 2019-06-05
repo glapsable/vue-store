@@ -1,5 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="page">
+    <div class="page__icon-wrapper">
+      <img src="../assets/icons/phone-book.png" alt="">
+    </div>
+    <h1 class="page__title">About</h1>
+    <p class="page__content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus est, placerat sed ante vel, ultrices congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam purus est, placerat sed ante vel, ultrices congue augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
   </div>
 </template>
