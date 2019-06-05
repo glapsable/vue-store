@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import unsplash from '../api/unsplash';
   import CartBox from '../components/CartBox';
   import ShopCard from '../components/ShopCard';
 
@@ -25,75 +25,64 @@
     data() {
       return {
         cartList: [],
-        shopItems: [
-          {
-            id: 1,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 1',
-            description: 'yoyoyoyoyoyo'
-          },
-          {
-            id: 2,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 2',
-            description: 'yoyoyoyoyoyo'
-          },
-          {
-            id: 3,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 3',
-            description: 'yoyoyoyoyoyo'
-          },
-          {
-            id: 4,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 4',
-            description: 'yoyoyoyoyoyo'
-          },
-          {
-            id: 5,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 5',
-            description: 'yoyoyoyoyoyo'
-          },
-          {
-            id: 6,
-            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
-            title: 'Elo 6',
-            description: 'yoyoyoyoyoyo'
-          }
-        ]
+        shopItems: []
       }
     },
     methods: {
-      deleteTodo(id) {
-        axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-          .then(res => this.todos = this.todos.filter(todo => todo.id !== res.id))
-          // eslint-disable-next-line
-          .catch(err => console.log(err))
-      },
-      addTodo(newTodo) {
-        const { title, completed } = newTodo;
-
-        axios.post('https://jsonplaceholder.typicode.com/todos', {
-          title,
-          completed
-        })
-          .then(res => {
-            this.todos = [res.data, ...this.todos];
-            // eslint-disable-next-line
-            console.log(res);
-          })
-          // eslint-disable-next-line
-          .catch(err => console.log(err));
-
-      }
+      // deleteTodo(id) {
+      //   axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      //     .then(res => this.todos = this.todos.filter(todo => todo.id !== res.id))
+      //     // eslint-disable-next-line
+      //     .catch(err => console.log(err))
+      // },
+      // addTodo(newTodo) {
+      //   const { title, completed } = newTodo;
+      //
+      //   axios.post('https://jsonplaceholder.typicode.com/todos', {
+      //     title,
+      //     completed
+      //   })
+      //     .then(res => {
+      //       this.todos = [res.data, ...this.todos];
+      //       // eslint-disable-next-line
+      //       console.log(res);
+      //     })
+      //     // eslint-disable-next-line
+      //     .catch(err => console.log(err));
+      //
+      // }
     },
     created() {
-      axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-        .then(res => this.todos = res.data)
+      // axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      //   .then(res => this.todos = res.data)
+      //   // eslint-disable-next-line
+      //   .catch(err => console.log(err));
+      // unsplash.get('/collections')
+      //   .then(res => console.log('res', res))
+      //   .catch(err => console.log('err', err))
+
+      // axios
+      //   .get('https://api.unsplash.com/photos/?client_id=7b963717e253c2b6dad7be8a7e5793c77e9d37c46b1ba4f64047039b8966651a')
+      //   .then(data => {
+      //     console.log(data)
+      //   })
+      //   .catch(err => {
+      //     console.log('Error happened during fetching!', err);
+      //   });
+
+      unsplash.get('/collections')
+        .then(res => {
+          res.data.map(item => {
+            this.shopItems.push({
+              id: item.id,
+              photo: item.preview_photos[0].urls.regular,
+              title: item.title,
+              description: item.cover_photo.alt_description
+            });
+          });
+        })
         // eslint-disable-next-line
-        .catch(err => console.log(err));
+        .catch(err => console.log('err', err))
     }
   }
 </script>
