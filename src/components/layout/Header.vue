@@ -1,14 +1,16 @@
 <template>
   <header class="header">
-    <h1 class="header__logo">LOGO</h1>
-    <nav class="header__nav">
-      <router-link class="header__link" to="/">Home</router-link>
-      <router-link class="header__link" to="/about">About</router-link>
-      <router-link class="header__link" to="/contact">Contact</router-link>
-      <div class="header__magnifier">
-        <MagnifierIcon/>
-      </div>
-    </nav>
+    <div class="container header__container">
+      <h1 class="header__logo">LOGO</h1>
+      <nav class="header__nav">
+        <router-link class="header__link" to="/">Home</router-link>
+        <router-link class="header__link" to="/about">About</router-link>
+        <router-link class="header__link" to="/contact">Contact</router-link>
+        <div class="header__magnifier">
+          <MagnifierIcon/>
+        </div>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -26,18 +28,21 @@
   @import "../../assets/styles/_variables.scss";
 
   .header {
+    box-shadow:0 1px 0 $gray;
+  }
+  .header__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow:0 1px 0 $gray;
-    @media only screen and (min-width: $small) {
+    padding: 0 0 0 20px;
+    @media only screen and (min-width: $rwd-small) {
       flex-direction: row;
     }
   }
   .header__logo {
     font-family: $second-font, sans-serif;
     font-weight: $main-weight;
-    margin: 20px;
+    margin-right: 20px;
     padding: 0;
   }
   .header__nav {
@@ -46,17 +51,20 @@
     justify-content: space-between;
     padding-left: 40px;
     width: 100vw;
-    @media only screen and (min-width: $small) {
+    @media only screen and (min-width: $rwd-small) {
       margin-left: unset;
       justify-content: flex-end;
     }
   }
   .header__link {
+    color: $dark-text;
     font-size: 14px;
     font-weight: bold;
-    margin-right: 46px;
     &:hover {
       color: $light-blue;
+    }
+    @media only screen and (min-width: $rwd-small) {
+      margin-right: 46px;
     }
   }
   .header__magnifier {

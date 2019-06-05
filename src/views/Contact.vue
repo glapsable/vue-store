@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="page__icon-wrapper">
-      <img src="../assets/icons/phone-book.png" alt="">
+      <img src="../assets/icons/phone-book-blue.png" alt="">
     </div>
     <h1 class="page__title">Contact</h1>
     <p class="page__content page__content--centered">

@@ -24,16 +24,18 @@
 
   .container {
     padding:0 20px;
+    max-width: $rwd-xlarge;
+    margin: 0 auto;
   }
-
   .page {
     background-color: $white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
     margin: 0 auto;
     margin-top: 50px;
     max-width: 668px;
     min-height: 448px;
     padding: 50px;
-    @media only screen and (min-width: $small) {
+    @media only screen and (min-width: $rwd-small) {
       margin-top: 135px;
       padding: 60px 130px 80px;
     }
@@ -51,6 +53,8 @@
       left: 50%;
       top: 50%;
       transform: translateX(-55%) translateY(-50%);
+      width: 35px;
+      height: 38px;
     }
   }
   .page__title {

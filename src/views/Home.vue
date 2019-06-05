@@ -1,24 +1,68 @@
 <template>
-  <div id="store">
-    <AddTodo v-on:add-todo="addTodo" />
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+<!--  <div id="store">-->
+<!--    <AddTodo v-on:add-todo="addTodo" />-->
+<!--    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />-->
+<!--  </div>-->
+  <div class="home">
+    <CartBox v-bind:cartList="cartList" />
+    <div class="home__cards-wrapper">
+        <ShopCard v-bind:shopItem="shopItem" v-bind:key="shopItem.id" v-for="shopItem in shopItems"/>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-  import Todos from '@/components/Todos';
-  import AddTodo from '@/components/AddTodo';
+  import CartBox from '../components/CartBox';
+  import ShopCard from '../components/ShopCard';
 
   export default {
     name: 'Home',
     components: {
-      Todos,
-      AddTodo
+      CartBox,
+      ShopCard
     },
     data() {
       return {
-        todos: []
+        cartList: [],
+        shopItems: [
+          {
+            id: 1,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 1',
+            description: 'yoyoyoyoyoyo'
+          },
+          {
+            id: 2,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 2',
+            description: 'yoyoyoyoyoyo'
+          },
+          {
+            id: 3,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 3',
+            description: 'yoyoyoyoyoyo'
+          },
+          {
+            id: 4,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 4',
+            description: 'yoyoyoyoyoyo'
+          },
+          {
+            id: 5,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 5',
+            description: 'yoyoyoyoyoyo'
+          },
+          {
+            id: 6,
+            photo: 'https://thedesignlove.com/wp-content/uploads/2017/06/152-Gift-Shop-Business-Card-Mockup.jpg',
+            title: 'Elo 6',
+            description: 'yoyoyoyoyoyo'
+          }
+        ]
       }
     },
     methods: {
@@ -54,17 +98,22 @@
   }
 </script>
 
-<style>
-  .btn {
-    display: inline-block;
-    border: none;
-    background: #555;
-    color: #fff;
-    padding: 7px 20px;
-    cursor: pointer;
-  }
+<style lang="scss" scoped>
+  @import '../assets/styles/variables';
 
-  .btn:hover {
-    background: #666;
+  .home {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: $rwd-small) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+  .home__cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
