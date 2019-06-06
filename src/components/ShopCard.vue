@@ -19,7 +19,7 @@
 
 <style>
   .shop-card {
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.02);
     margin: 25px;
     width: 216px;
   }

@@ -28,7 +28,11 @@
 <script>
   export default {
     name: "CartBox",
-    props: ["cartList"]
+    data() {
+      return {
+        cartList: []
+      }
+    }
   }
 </script>
 

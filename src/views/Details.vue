@@ -1,5 +1,5 @@
 <template>
-
+  <p>{{ id }}</p>
 </template>
 
 <script>
