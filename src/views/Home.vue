@@ -1,8 +1,17 @@
 <template>
+  <!--  <div id="store">-->
+  <!--    <AddTodo v-on:add-todo="addTodo" />-->
+  <!--    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />-->
+  <!--  </div>-->
   <div class="home">
     <CartBox v-bind:cartList="cartList" />
     <div class="home__cards-wrapper">
-        <ShopCard v-bind:shopItem="shopItem" v-bind:key="shopItem.id" v-for="shopItem in shopItems"/>
+        <ShopCard
+            v-for="shopItem in shopItems"
+            v-bind:key="shopItem.id"
+            v-bind:shopItem="shopItem"
+            v-on:clickCard="goToDetails"
+        />
     </div>
     <div class="isLoading" v-if="isLoading">
       <LoaderIcon/>
@@ -31,6 +40,9 @@
       }
     },
     methods: {
+      goToDetails(id) {
+        this.$router.push({ name: 'details', params: { id } });
+      },
       // deleteTodo(id) {
       //   axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
       //     .then(res => this.todos = this.todos.filter(todo => todo.id !== res.id))

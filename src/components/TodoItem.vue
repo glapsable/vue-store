@@ -1,5 +1,8 @@
 <template>
-  <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
+  <div
+      class="todo-item"
+      v-bind:class="{'is-complete':todo.completed}"
+  >
     <p>
       <input type="checkbox" v-on:change="markComplete">
       {{todo.title}}

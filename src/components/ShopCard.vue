@@ -1,11 +1,13 @@
 <template>
-  <div class="shop-card">
+  <router-link v-bind:to="{ name: 'details', params: { id: shopItem.id } }"
+      class="shop-card"
+  >
     <img class="shop-card__image" :src="shopItem.photo" alt="">
     <div class="shop-card__info">
       <p class="shop-card__title">{{shopItem.title}}</p>
       <p class="shop-card__description">{{shopItem.description}}</p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
