@@ -12,11 +12,11 @@
     <div class="cart-box__cart">
       <div class="cart-box__title">
         <img src="../assets/icons/shopping-cart.png" alt="">
-        <span class="cart-box__title-text">Contact ({{ cartList.length }})</span>
+        <span class="cart-box__title-text">Contact ({{ allCartBoxList.length }})</span>
       </div>
-      <ul class="cart-box__bag" v-bind:class="{'cart-box__bag--empty':cartList.length === 0}">
-          <li v-if="!cartList.length">Cart is empty</li>
-          <li class="cart-box__bag-item" v-bind:key="cartItem.id" v-for="cartItem in cartList">
+      <ul class="cart-box__bag" v-bind:class="{'cart-box__bag--empty':allCartBoxList.length === 0}">
+          <li v-if="!allCartBoxList.length">Cart is empty</li>
+          <li class="cart-box__bag-item" v-bind:key="cartItem.id" v-for="cartItem in allCartBoxList">
             <span class="cart-box__item-green">{{cartItem.id}}</span>
             {{cartItem.title}} {{cartItem.description}}
           </li>
@@ -26,13 +26,10 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
   export default {
     name: "CartBox",
-    data() {
-      return {
-        cartList: []
-      }
-    }
+    computed: mapGetters(['allCartBoxList']),
   }
 </script>
 

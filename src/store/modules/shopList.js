@@ -7,10 +7,12 @@ const state = {
 
 const getters = {
   allShopList: state => state.shopList,
+  isLoading: state => state.isLoading,
 };
 
 const actions = {
   async fetchShopList({ commit }) {
+    commit('loading', true );
     const response = await unsplash.get('/collections');
 
     const managedResponse = response.data.map(item => ({
@@ -21,11 +23,13 @@ const actions = {
     }));
 
     commit('setShopList', managedResponse);
+    commit('loading', false );
   }
 };
 
 const mutations = {
-  setShopList: (state, shopList) => (state.shopList = shopList)
+  setShopList: (state, shopList) => (state.shopList = shopList),
+  loading: (state, isLoading) => (state.isLoading = isLoading)
 };
 
 export default {

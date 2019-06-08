@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
   import CartBox from '../components/CartBox';
   import ShopList from '../components/ShopList';
   import LoaderIcon from '../assets/icons/loader.svg';
@@ -20,14 +21,21 @@
       ShopList,
       LoaderIcon,
     },
-    data() {
-      return {
-        isLoading: false,
-      }
-    }
+    computed: mapGetters(['isLoading']),
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  @import '../assets/styles/variables';
 
+  .home {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: $rwd-small) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
 </style>

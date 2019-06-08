@@ -1,14 +1,18 @@
-import axios from 'axios';
-
 const state = {
-
+  cartBox: []
 };
 
-const getters = {};
+const getters = {
+  allCartBoxList: state => state.cartBox,
+};
 
 const actions = {};
 
-const mutations = {};
+const mutations = {
+  setCartItem: (state, cartBoxItem) => {
+    state.cartBox.push(cartBoxItem);
+  },
+};
 
 export default {
   state,
