@@ -44,21 +44,40 @@
 
   .big-box {
     background-color: $light-blue;
-    padding: 30px 50px 60px;
     margin-top: 25px;
     width: 1000px;
   }
   .big-box__image {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    max-height: 470px;
+    object-fit: cover;
+  }
+  .big-box__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 35px 50px 50px;
+  }
+  .big-box__information {
+
   }
   .big-box__title {
+    color: $white;
     font-size: 18px;
     font-weight: 600;
+    margin: 0;
     margin-bottom: 20px;
   }
   .big-box__description {
     color: $gray;
     font-size: 13px;
+  }
+  .big-box__button {
+    background-color: $accent;
+    border: none;
+    color: $white;
+    font-family: $main-font, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 60px;
   }
 </style>

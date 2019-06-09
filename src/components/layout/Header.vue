@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container header__container">
-      <h1 class="header__logo">LOGO</h1>
+      <router-link to="/"><h1 class="header__logo">LOGO</h1></router-link>
       <nav class="header__nav">
         <router-link class="header__link" to="/">Home</router-link>
         <router-link class="header__link" to="/about">About</router-link>
@@ -40,6 +40,7 @@
     }
   }
   .header__logo {
+    color: $dark-text;
     font-family: $second-font, sans-serif;
     font-weight: $main-weight;
     margin-right: 20px;

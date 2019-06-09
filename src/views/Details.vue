@@ -1,5 +1,5 @@
 <template>
-  <div class="details">
+  <div class="layout">
     <CartBox/>
     <BigBox v-bind:itemId="id"/>
   </div>

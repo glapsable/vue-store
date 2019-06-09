@@ -75,6 +75,16 @@
   .page__content--centered {
     text-align: center;
   }
+  .layout {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: $rwd-small) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
   .isLoading {
     display:flex;
     justify-content: center;

@@ -17,7 +17,9 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  @import '../assets/styles/variables';
+
   .shop-card {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.02);
     margin: 25px;
@@ -32,12 +34,14 @@
     padding: 15px;
   }
   .shop-card__title {
+    color: $dark-text;
     font-size: 18px;
     font-weight: 600;
     margin: 0;
     margin-bottom: 15px;
   }
   .shop-card__description {
+    color: $light-text;
     font-size: 12px;
     margin: 0;
   }
