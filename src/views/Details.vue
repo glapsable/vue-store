@@ -22,10 +22,3 @@
   }
 </script>
 
-<style>
-  .details {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 50px;
-  }
-</style>
